@@ -32,7 +32,7 @@ public class explodything : MonoBehaviour
         {
             Vector3 pos = rb.transform.position;
             Vector3 posDiff = pos - whereIAm;
-            rb.AddForceAtPosition(FORCE * posDiff, pos, ForceMode2D.Impulse);
+            rb.AddForceAtPosition((FORCE * posDiff.normalized)/posDiff.magnitude, pos, ForceMode2D.Impulse);
         }
     }
     

@@ -20,7 +20,7 @@ public class startingFanfare : MonoBehaviour
         yield return new WaitForSeconds(1f);
         startText.text = "1";
         yield return new WaitForSeconds(1f);
-        startText.text = "GO!";
+        startText.text = "REPAIR!";
         yield return new WaitForSeconds(.3f);
         startText.gameObject.SetActive(false);
         yield return null;
