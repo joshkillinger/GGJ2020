@@ -51,7 +51,7 @@ public class CraneController : MonoBehaviour
 
     public void Event_MoveVertical(float distance)
     {
-        pulley.ClawDistance += distance;
+        pulley.ClawDistance -= distance;
     }
 }
 
@@ -151,14 +151,18 @@ public class CraneController_Inspector : Editor
 
         // create a slider that represents the pulley's horizontal position
         GUILayout.Label("Pulley Position");
-        float pulleyposX = EditorGUILayout.Slider(crane.pulley.transform.position.x, crane.pulley.leftBound, crane.pulley.rightBound);
+        var x = crane.pulley.transform.position.x;
+        float pulleyposX = EditorGUILayout.Slider(x, crane.pulley.leftBound, crane.pulley.rightBound);
 
         // if the slider is moved
-        if (pulleyposX != crane.pulley.transform.position.x)
+        if (pulleyposX != x)
         {
-
             // apply the position change
-            crane.pulley.horizontalPosition = pulleyposX;
+            crane.Event_MoveHorizontal(pulleyposX - x);
+
+            var clawPos = crane.pulley.claw.transform.localPosition;
+            clawPos.x = crane.pulley.transform.localPosition.x;
+            crane.pulley.claw.transform.localPosition = clawPos;
 
             // notify a the crane's data has been modified
             EditorUtility.SetDirty(crane.pulley);
@@ -166,14 +170,20 @@ public class CraneController_Inspector : Editor
 
         // create a slider for the claw's vertical position
         GUILayout.Label("Claw Position");
-        float pulleyposY = EditorGUILayout.Slider(crane.pulley.claw.transform.position.y, crane.pulley.clawUpperBound, crane.pulley.clawLowerBound);
+        var dist = crane.pulley.ClawDistance;
+        float pulleyDist = EditorGUILayout.Slider(dist, crane.pulley.clawUpperBound, crane.pulley.clawLowerBound);
 
         // if the slider is moved
-        if (pulleyposY != crane.pulley.claw.transform.position.y)
+        if (pulleyDist != dist)
         {
-
             // apply the position change
-            crane.pulley.ClawDistance = pulleyposY;
+            crane.Event_MoveVertical(dist - pulleyDist);
+
+            var clawPos = crane.pulley.claw.transform.localPosition;
+            clawPos.y = crane.pulley.transform.localPosition.y - dist;
+            crane.pulley.claw.transform.localPosition = clawPos;
+
+            crane.pulley.LateUpdate();
 
             // notify a the crane's data has been modified
             EditorUtility.SetDirty(crane.pulley);

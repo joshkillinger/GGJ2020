@@ -143,7 +143,8 @@ public class CranePulleyMover : MonoBehaviour
 
     }
 
-    private void LateUpdate()
+    [ExecuteInEditMode]
+    public void LateUpdate()
     {
         lerpMidweight();
         stretchLines();
