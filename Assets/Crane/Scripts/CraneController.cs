@@ -35,6 +35,14 @@ public class CraneController : MonoBehaviour
 	public CranePulleyMover pulley => _pulley;
 
 	public CraneClaw claw => _pulley.claw;
+
+    public void Event_ToggleClaw(bool grab)
+    {
+        if (claw.isGrasping != grab)
+        {
+            claw.isGrasping = grab;
+        }
+    }
 }
 
 #if UNITY_EDITOR
@@ -159,7 +167,7 @@ public class CraneController_Inspector : Editor
 		if(grasping != crane.pulley.claw.isGrasping) {
 
 			// apply the property to the CraneClaw target
-			crane.pulley.claw.isGrasping = grasping;
+			crane.Event_ToggleClaw(grasping);
 			EditorUtility.SetDirty(crane.pulley.claw); // notify that a change to the claw's data has occured
 		}
 	}
