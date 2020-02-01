@@ -8,30 +8,31 @@ using UnityEditor;
 
 public class CraneClaw : MonoBehaviour
 {
-	[SerializeField]
-	private Transform _rightClaw;
+    [SerializeField]
+    private Transform _rightClaw;
 
-	[SerializeField]
-	private Transform _leftClaw;
+    [SerializeField]
+    private Transform _leftClaw;
 
-	[SerializeField, HideInInspector]
-	private bool _isGrasping = false;
+    [SerializeField, HideInInspector]
+    private bool _isGrasping = false;
 
-	public bool isGrasping { 
-		get => _isGrasping;
-		set {
+    public bool isGrasping
+    {
+        get => _isGrasping;
+        set
+        {
+            // find the amount that the claws should be rotated by
+            float degrees = value ? -0 : 45;
 
-			// find the amount that the claws should be rotated by
-			float degrees = value ? -0 : 45;
+            // apply the rotation
+            _leftClaw.transform.rotation = Quaternion.Euler(0, 0, -degrees);
+            _rightClaw.transform.rotation = Quaternion.Euler(0, 0, degrees);
 
-			// apply the rotation
-			_leftClaw.transform.rotation = Quaternion.Euler(0, 0, -degrees);
-			_rightClaw.transform.rotation = Quaternion.Euler(0, 0, degrees);
-
-			// set the flag so that the proper value can be returned from the getter
-			_isGrasping = value;
-		}
-	}
+            // set the flag so that the proper value can be returned from the getter
+            _isGrasping = value;
+        }
+    }
 }
 
 #if UNITY_EDITOR

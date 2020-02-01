@@ -8,129 +8,146 @@ using UnityEditor;
 
 public class CranePulleyMover : MonoBehaviour
 {
-	[SerializeField]
-	private CraneClaw _claw;
+    [SerializeField]
+    private CraneClaw _claw;
+    public CraneClaw claw => _claw;
 
-	public CraneClaw claw => _claw;
+    private DistanceJoint2D _clawJoint;
+    private DistanceJoint2D clawJoint
+    {
+        get
+        {
+            if (_clawJoint == null)
+            {
+                _clawJoint = _claw.GetComponent<DistanceJoint2D>();
+            }
+            return _clawJoint;
+        }
+    }
 
-	[SerializeField]
-	private Transform _pulleyBase;
+    [SerializeField]
+    private Transform _pulleyBase;
 
-	[SerializeField]
-	private Transform _midweight;
+    [SerializeField]
+    private Transform _midweight;
 
-	[SerializeField]
-	private SpriteRenderer[] _baseLines;
+    [SerializeField]
+    private SpriteRenderer[] _baseLines;
 
-	[SerializeField]
-	private SpriteRenderer _clawLine;
+    [SerializeField]
+    private SpriteRenderer _clawLine;
 
-	[SerializeField]
-	private Transform _leftBounds;
+    [SerializeField]
+    private Transform _leftBounds;
 
-	[SerializeField]
-	private Transform _rightBounds;
+    [SerializeField]
+    private Transform _rightBounds;
 
-	[SerializeField]
-	private Transform _clawUpperBounds;
+    [SerializeField]
+    private Transform _clawUpperBounds;
 
-	[SerializeField]
-	private Transform _clawLowerBounds;
+    [SerializeField]
+    private Transform _clawLowerBounds;
 
 
-	public float leftBound => _leftBounds.position.x;
-	public float rightBound => _rightBounds.position.x;
-	public float clawUpperBound => _clawUpperBounds.position.y;
-	public float clawLowerBound => _clawLowerBounds.position.y;
+    public float leftBound => _leftBounds.position.x;
+    public float rightBound => _rightBounds.position.x;
+    public float clawUpperBound => _clawUpperBounds.position.y;
+    public float clawLowerBound => _clawLowerBounds.position.y;
 
-	public float horizontalPosition {
-		get => transform.position.x;
-		set {
+    public float horizontalPosition
+    {
+        get => transform.position.x;
+        set
+        {
+            Vector3 tpos = transform.position;
 
-			Vector3 tpos = transform.position;
-			
-			// clamp the x position between the left and right bounds
-			tpos.x = Mathf.Clamp(value, leftBound, rightBound);
+            // clamp the x position between the left and right bounds
+            tpos.x = Mathf.Clamp(value, leftBound, rightBound);
 
-			// apply the new position
-			transform.position = tpos;
-		}
-	}
+            // apply the new position
+            transform.position = tpos;
+        }
+    }
 
-	public float verticalClawPosition {
-		get => claw.transform.position.y;
-		set {
+    public float ClawDistance
+    {
+        get => clawJoint.distance;
+        set
+        {
+            // clamp the y value between the upper and lower bounds
+            var distance = Mathf.Clamp(value, clawLowerBound, clawUpperBound);
 
-			Vector3 tpos = claw.transform.position;
+            // apply the position change
+            clawJoint.distance = distance;
+        }
+    }
 
-			// clamp the y value between the upper and lower bounds
-			tpos.y = Mathf.Clamp(value, clawLowerBound, clawUpperBound);
+    private void lerpMidweight()
+    {
+        _midweight.transform.position = Vector3.Lerp(_pulleyBase.transform.position, claw.transform.position, 0.5f);
+    }
 
-			// apply the position change
-			claw.transform.position = tpos;
+    private void stretchLines()
+    {
 
-			// appropriately set the midweight position and stretch the lines
-			lerpMidweight();
-			stretchLines();
-		}
-	}
+        // pre-declare variables
+        Vector3 dif; // difference between two positions
+        float direction; // direction from one position to another
+        Vector2 size; // the size of a sprite as defined by it's sprite renderer
 
-	private void lerpMidweight() {
-		_midweight.transform.position = Vector3.Lerp(_pulleyBase.transform.position, claw.transform.position, 0.5f);
-	}
+        // stretch out each base line to the midweight
+        foreach (SpriteRenderer line in _baseLines)
+        {
 
-	private void stretchLines() {
+            // store the y offset of the line's position from the pulley base
+            float offY = line.transform.localPosition.y;
 
-		// pre-declare variables
-		Vector3 dif; // difference between two positions
-		float direction; // direction from one position to another
-		Vector2 size; // the size of a sprite as defined by it's sprite renderer
+            // calculate the difference in position between the base and the midweight
+            dif = _midweight.position - _pulleyBase.position;
 
-		// stretch out each base line to the midweight
-		foreach(SpriteRenderer line in _baseLines) {
+            // calculate the angle direction from the pulley base pointing to the midweight
+            direction = Mathf.Atan2(dif.y, dif.x) * Mathf.Rad2Deg;
 
-			// store the y offset of the line's position from the pulley base
-			float offY = line.transform.localPosition.y;
+            // rotate the lines according to the positional difference between the base and the midweight
+            line.transform.rotation = Quaternion.Euler(0, 0, direction + 90);
 
-			// calculate the difference in position between the base and the midweight
-			dif = _midweight.position - _pulleyBase.position;
+            // get the tiled size of the sprite
+            size = line.size;
 
-			// calculate the angle direction from the pulley base pointing to the midweight
-			direction = Mathf.Atan2(dif.y, dif.x) * Mathf.Rad2Deg;
+            // set the y size to the distance between the midweight and pulley base
+            size.y = dif.magnitude;
 
-			// rotate the lines according to the positional difference between the base and the midweight
-			line.transform.rotation = Quaternion.Euler(0, 0, direction + 90);
+            // apply the y offset
+            size.y += (offY);
 
-			// get the tiled size of the sprite
-			size = line.size;
+            // apply the tiled size
+            line.size = size;
+        }
 
-			// set the y size to the distance between the midweight and pulley base
-			size.y = dif.magnitude;
+        // store the y offset of the claw line from the midweight
+        float mwOffY = _clawLine.transform.localPosition.y;
 
-			// apply the y offset
-			size.y += (offY);
+        // calculate the positional difference between the midweight and the claw
+        dif = _claw.transform.position - _midweight.position;
 
-			// apply the tiled size
-			line.size = size;
-		}
+        // rotate the line from the midweight to the claw
+        direction = Mathf.Atan2(dif.y, dif.x) * Mathf.Rad2Deg;
+        _clawLine.transform.rotation = Quaternion.Euler(0, 0, direction + 90);
 
-		// store the y offset of the claw line from the midweight
-		float mwOffY = _clawLine.transform.localPosition.y;
+        // apply the size changes to the sprite
+        size = _clawLine.size;
+        size.y = dif.magnitude;
+        size.y += mwOffY;
+        _clawLine.size = size;
 
-		// calculate the positional difference between the midweight and the claw
-		dif = _claw.transform.position - _midweight.position;
+    }
 
-		// rotate the line from the midweight to the claw
-		direction = Mathf.Atan2(dif.y, dif.x) * Mathf.Rad2Deg;
-		_clawLine.transform.rotation = Quaternion.Euler(0, 0, direction + 90);
-
-		// apply the size changes to the sprite
-		size = _clawLine.size;
-		size.y = dif.magnitude;
-		size.y += mwOffY;
-		_clawLine.size = size;
-
-	}
+    private void LateUpdate()
+    {
+        lerpMidweight();
+        stretchLines();
+    }
 }
 
 #if UNITY_EDITOR
@@ -139,39 +156,42 @@ public class CranePulleyMover : MonoBehaviour
 public class CranePulleyMover_Inspector : Editor
 {
 
-	public CranePulleyMover pulley => target as CranePulleyMover;
+    public CranePulleyMover pulley => target as CranePulleyMover;
 
-	public override void OnInspectorGUI() {
-		base.OnInspectorGUI();
+    public override void OnInspectorGUI()
+    {
+        base.OnInspectorGUI();
 
-		// create a slider that represents the pulley's horizontal position
-		GUILayout.Label("Position X");
-		float pulleyposX = EditorGUILayout.Slider(pulley.transform.position.x, pulley.leftBound, pulley.rightBound);
+        // create a slider that represents the pulley's horizontal position
+        GUILayout.Label("Position X");
+        float pulleyposX = EditorGUILayout.Slider(pulley.transform.position.x, pulley.leftBound, pulley.rightBound);
 
-		// if the slider is moved
-		if(pulleyposX != pulley.transform.position.x) {
+        // if the slider is moved
+        if (pulleyposX != pulley.transform.position.x)
+        {
 
-			// apply the position change
-			pulley.horizontalPosition = pulleyposX;
+            // apply the position change
+            pulley.horizontalPosition = pulleyposX;
 
-			// notify the pulley's data has been modified
-			EditorUtility.SetDirty(pulley);
-		}
+            // notify the pulley's data has been modified
+            EditorUtility.SetDirty(pulley);
+        }
 
-		// create a slider for the claw's vertical position
-		GUILayout.Label("Position Y");
-		float pulleyposY = EditorGUILayout.Slider(pulley.claw.transform.position.y, pulley.clawUpperBound, pulley.clawLowerBound);
+        // create a slider for the claw's vertical position
+        GUILayout.Label("Position Y");
+        float pulleyposY = EditorGUILayout.Slider(pulley.claw.transform.position.y, pulley.clawUpperBound, pulley.clawLowerBound);
 
-		// if the slider is moved
-		if(pulleyposY != pulley.claw.transform.position.y) {
+        // if the slider is moved
+        if (pulleyposY != pulley.claw.transform.position.y)
+        {
 
-			// apply the position change
-			pulley.verticalClawPosition = pulleyposY;
+            // apply the position change
+            pulley.ClawDistance = pulleyposY;
 
-			// notify the pulley's data has been modified
-			EditorUtility.SetDirty(pulley);
-		}
-	}
+            // notify the pulley's data has been modified
+            EditorUtility.SetDirty(pulley);
+        }
+    }
 
 }
 

@@ -91,6 +91,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6005906924762733939}
   - component: {fileID: 8812905631139551178}
+  - component: {fileID: 6659888585230157972}
+  - component: {fileID: 4495528909535205783}
   m_Layer: 0
   m_Name: Crane
   m_TagString: Untagged
@@ -133,6 +135,62 @@ MonoBehaviour:
   _rightEnd: {fileID: 6005906926575784319}
   _barJoiner: {fileID: 6005906925881996571}
   _pulley: {fileID: 9043105754312926003}
+--- !u!114 &6659888585230157972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6005906924762733936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 823fc16efd617b142a4cf299168a005a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Axis: Horizontal
+  Speed: 1
+  onChange:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8812905631139551178}
+        m_MethodName: Event_MoveHorizontal
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &4495528909535205783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6005906924762733936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 823fc16efd617b142a4cf299168a005a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Axis: Vertical
+  Speed: 1
+  onChange:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8812905631139551178}
+        m_MethodName: Event_MoveVertical
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6005906924782702506
 GameObject:
   m_ObjectHideFlags: 0
