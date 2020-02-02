@@ -5,8 +5,18 @@ using UnityEngine.SceneManagement;
 
 public class StartScreenStartGame : MonoBehaviour
 {
-   public void PlayGame()
+    public void PlayGame()
     {
-       SceneManager.LoadScene(1);
+        SceneManager.LoadScene(1);
+    }
+
+    public void LoadCredits()
+    {
+        SceneManager.LoadScene(2);
+    }
+
+    public void LoadControls()
+    {
+        SceneManager.LoadScene(3);
     }
 }
