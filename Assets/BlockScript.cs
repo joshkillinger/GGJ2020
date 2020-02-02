@@ -8,7 +8,18 @@ public class BlockScript : MonoBehaviour
     [SerializeField] private FixedJoint2D joint = null;
     [SerializeField] private List<Transform> grabPoints = null;
 
+    private Rigidbody2D rb;
+    private float steadyTime = .5f;
+    private float timeIveBeenSteady = 0f;
+    private float steadyVelocity = .1f;
+    private float steadyAngularVelocity = .1f;
     public bool IsGrabbed
+    {
+        get;
+        private set;
+    }
+
+    public bool IsSteady
     {
         get;
         private set;
@@ -40,5 +51,36 @@ public class BlockScript : MonoBehaviour
         joint.connectedBody = null;
         joint.enabled = false;
         IsGrabbed = false;
+    }
+
+    public void grabBlock() { IsGrabbed = false; }
+    public void ungrabBlock() { IsGrabbed = true; }
+
+    public bool getIsGrabbed() { return IsGrabbed; }
+
+    void Awake()
+    {
+        IsGrabbed = false;
+        IsSteady = true;
+        rb = this.GetComponent<Rigidbody2D>();
+    }
+
+    void Update()
+    {
+        float v = rb.velocity.sqrMagnitude;
+        float w = rb.angularVelocity;
+        if (v < steadyVelocity && w < steadyAngularVelocity)
+        {
+            timeIveBeenSteady += Time.deltaTime;
+            if(timeIveBeenSteady > steadyTime)
+            {
+                IsSteady = true;
+            }
+        }
+        else
+        {
+            IsSteady = false;
+            timeIveBeenSteady = 0;
+        }
     }
 }

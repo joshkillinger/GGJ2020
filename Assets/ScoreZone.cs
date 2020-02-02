@@ -30,7 +30,7 @@ public class ScoreZone : MonoBehaviour
                 BlockScript bs = obj.GetComponent<BlockScript>();
                 if (bs != null)
                 {
-                    if (!bs.IsGrabbed)
+                    if (!bs.IsGrabbed && bs.IsSteady)
                     {
                         if (obj.transform.position.y > mostHighestHeight)
                         {
