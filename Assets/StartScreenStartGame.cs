@@ -19,4 +19,9 @@ public class StartScreenStartGame : MonoBehaviour
     {
         SceneManager.LoadScene(3);
     }
+
+    public void PlaySinglePlayer()
+    {
+        SceneManager.LoadScene(4);
+    }
 }
