@@ -17,6 +17,9 @@ public class GameKeeper : MonoBehaviour
     private float currentTime;
 
     private bool gameStarted = false;
+    private bool gameEnded = false;
+
+    public Text gameEndText;
 
 
     public void startGame()
@@ -32,7 +35,14 @@ public class GameKeeper : MonoBehaviour
         int remainingSeconds = (gameSeconds - passedSeconds);
         int remainingMinutes =  remainingSeconds / 60;
         int remainder = remainingSeconds % 60;
-        timer.text = remainingMinutes.ToString() + ":" + remainder.ToString("D2");
+        if (remainingSeconds > 0)
+        {
+            timer.text = remainingMinutes.ToString() + ":" + remainder.ToString("D2");
+        }
+        else
+        {
+            gameEnded = true;
+        }
     }
 
     private void handleBloxScore()
@@ -49,16 +59,35 @@ public class GameKeeper : MonoBehaviour
         player2Score.text = "P2 Height: " + player2Box.getHeightScore().ToString("F2") + "m";
     }
 
+    private void handleGameEnding()
+    {
+        gameStarted = false;
+        if(player1Box.getHeightScore() > player2Box.getHeightScore())
+        {
+            gameEndText.text = "Player 1 wins";
+        }
+        else
+        {
+            gameEndText.text = "Player 2 wins";
+        }
+        //then go back to menu
+    }
 
     void Update()
     {
+        if (gameEnded)
+        {
+            handleGameEnding();
+        }
         if (gameStarted)
         {
             handleTimer();
             if (gameMode == "Blox")
             {
                 handleBloxScore();
-            }else if(gameMode == "Towahs"){
+            }
+            else if(gameMode == "Towahs")
+            {
                 handleTowahsScore();
             }
         }
