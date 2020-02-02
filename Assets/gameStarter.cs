@@ -6,15 +6,16 @@ public class gameStarter : MonoBehaviour
 {
     private explodything boomBoom;
     private startingFanfare fanfare;
+    private GameKeeper gameKeeper;
     private void init()
     {
         boomBoom = FindObjectOfType<explodything>();
         fanfare = FindObjectOfType<startingFanfare>();
+        gameKeeper = FindObjectOfType<GameKeeper>();
 
         if(boomBoom == null)
         {
             Debug.LogError("NO BOOM BOOM");
-
         }
 
         if(fanfare == null)
@@ -22,6 +23,10 @@ public class gameStarter : MonoBehaviour
             Debug.LogError("NO FANFARE");
         }
 
+        if(gameKeeper == null)
+        {
+            Debug.LogError("NO GAME KEEPER");
+        } 
     }
     
 
@@ -33,5 +38,6 @@ public class gameStarter : MonoBehaviour
     {
         yield return StartCoroutine(fanfare.Fanfare());
         boomBoom.doTheBoomBoom();
+        gameKeeper.startGame();
     }
 }

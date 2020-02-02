@@ -62,6 +62,11 @@ public class BlockGrabber : MonoBehaviour
         if(currentBlock != null)
         {
             //clench that block
+            BlockScript bs = currentBlock.GetComponent<BlockScript>();
+            if(bs != null)
+            {
+                bs.grabBlock();
+            }
             freezeBlockRotation();
         }
     }
@@ -73,6 +78,11 @@ public class BlockGrabber : MonoBehaviour
             {
                 //let it go, let it go
                 currentBlock.velocity = cranePulleyClawRigidBody.velocity;
+                BlockScript bs = currentBlock.GetComponent<BlockScript>();
+                if (bs != null)
+                {
+                    bs.ungrabBlock();
+                }
                 unfreezeBlockRotation();
             }
         }
