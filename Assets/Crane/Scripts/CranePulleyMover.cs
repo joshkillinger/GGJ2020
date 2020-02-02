@@ -1,15 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-#if UNITY_EDITOR
-using UnityEditor;
-#endif
+﻿using UnityEngine;
 
 public class CranePulleyMover : MonoBehaviour
 {
     [SerializeField]
-    private CraneClaw _claw;
+    private CraneClaw _claw = null;
     public CraneClaw claw => _claw;
 
     private DistanceJoint2D _clawJoint;
@@ -26,28 +20,28 @@ public class CranePulleyMover : MonoBehaviour
     }
 
     [SerializeField]
-    private Transform _pulleyBase;
+    private Transform _pulleyBase = null;
 
     [SerializeField]
-    private Transform _midweight;
+    private Transform _midweight = null;
 
     [SerializeField]
-    private SpriteRenderer[] _baseLines;
+    private SpriteRenderer[] _baseLines = null;
 
     [SerializeField]
-    private SpriteRenderer _clawLine;
+    private SpriteRenderer _clawLine = null;
 
     [SerializeField]
-    private Transform _leftBounds;
+    private Transform _leftBounds = null;
 
     [SerializeField]
-    private Transform _rightBounds;
+    private Transform _rightBounds = null;
 
     [SerializeField]
-    private Transform _clawUpperBounds;
+    private Transform _clawUpperBounds = null;
 
     [SerializeField]
-    private Transform _clawLowerBounds;
+    private Transform _clawLowerBounds = null;
 
 
     public float leftBound => _leftBounds.position.x;
@@ -90,8 +84,6 @@ public class CranePulleyMover : MonoBehaviour
 
     private void stretchLines()
     {
-
-        // pre-declare variables
         Vector3 dif; // difference between two positions
         float direction; // direction from one position to another
         Vector2 size; // the size of a sprite as defined by it's sprite renderer
@@ -140,7 +132,6 @@ public class CranePulleyMover : MonoBehaviour
         size.y = dif.magnitude;
         size.y += mwOffY;
         _clawLine.size = size;
-
     }
 
     [ExecuteInEditMode]
@@ -151,49 +142,3 @@ public class CranePulleyMover : MonoBehaviour
     }
 }
 
-#if UNITY_EDITOR
-
-[CustomEditor(typeof(CranePulleyMover))]
-public class CranePulleyMover_Inspector : Editor
-{
-
-    public CranePulleyMover pulley => target as CranePulleyMover;
-
-    public override void OnInspectorGUI()
-    {
-        base.OnInspectorGUI();
-
-        // create a slider that represents the pulley's horizontal position
-        GUILayout.Label("Position X");
-        float pulleyposX = EditorGUILayout.Slider(pulley.transform.position.x, pulley.leftBound, pulley.rightBound);
-
-        // if the slider is moved
-        if (pulleyposX != pulley.transform.position.x)
-        {
-
-            // apply the position change
-            pulley.horizontalPosition = pulleyposX;
-
-            // notify the pulley's data has been modified
-            EditorUtility.SetDirty(pulley);
-        }
-
-        // create a slider for the claw's vertical position
-        GUILayout.Label("Position Y");
-        float pulleyposY = EditorGUILayout.Slider(pulley.claw.transform.position.y, pulley.clawUpperBound, pulley.clawLowerBound);
-
-        // if the slider is moved
-        if (pulleyposY != pulley.claw.transform.position.y)
-        {
-
-            // apply the position change
-            pulley.ClawDistance = pulleyposY;
-
-            // notify the pulley's data has been modified
-            EditorUtility.SetDirty(pulley);
-        }
-    }
-
-}
-
-#endif

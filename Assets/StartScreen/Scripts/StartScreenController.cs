@@ -6,16 +6,16 @@ using UnityEngine.UI;
 public class StartScreenController : MonoBehaviour
 {
 	[SerializeField]
-	private Sprite _unreadySprite;
+	private Sprite _unreadySprite = null;
 
 	[SerializeField]
-	private Sprite _readySprite;
+	private Sprite _readySprite = null;
 
 	[SerializeField]
-	private Image _player1Ready;
+	private Image _player1Ready = null;
 
 	[SerializeField]
-	private Image _player2Ready;
+	private Image _player2Ready = null;
 
 	private bool _ready1 = false;
 

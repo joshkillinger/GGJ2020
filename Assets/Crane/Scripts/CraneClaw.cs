@@ -9,10 +9,10 @@ using UnityEditor;
 public class CraneClaw : MonoBehaviour
 {
     [SerializeField]
-    private Transform _rightClaw;
+    private Transform _rightClaw = null;
 
     [SerializeField]
-    private Transform _leftClaw;
+    private Transform _leftClaw = null;
 
     [SerializeField, HideInInspector]
     private bool _isGrasping = false;

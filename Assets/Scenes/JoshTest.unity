@@ -302,6 +302,16 @@ PrefabInstance:
       propertyPath: m_Distance
       value: 2.02
       objectReference: {fileID: 0}
+    - target: {fileID: 91048079448271054, guid: 51c200af4aefc874c9718b070ab628d6,
+        type: 3}
+      propertyPath: m_EnableCollision
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 91048079448271054, guid: 51c200af4aefc874c9718b070ab628d6,
+        type: 3}
+      propertyPath: m_MaxDistanceOnly
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 638978585986776859, guid: 51c200af4aefc874c9718b070ab628d6,
         type: 3}
       propertyPath: _isGrasping

@@ -9,19 +9,19 @@ using UnityEditor;
 public class CraneController : MonoBehaviour
 {
 	[SerializeField]
-	private SpriteRenderer _verticalBar;
+	private SpriteRenderer _verticalBar = null;
 
 	[SerializeField]
-	private SpriteRenderer _horizontalBar;
+	private SpriteRenderer _horizontalBar = null;
 
 	[SerializeField]
-	private SpriteRenderer _leftEnd;
+	private SpriteRenderer _leftEnd = null;
 
 	[SerializeField]
-	private SpriteRenderer _rightEnd;
+	private SpriteRenderer _rightEnd = null;
 
 	[SerializeField]
-	private Transform _barJoiner;
+	private Transform _barJoiner = null;
 
 	public SpriteRenderer horizontalBar => _horizontalBar;
 	public SpriteRenderer verticalBar => _verticalBar;
@@ -30,7 +30,7 @@ public class CraneController : MonoBehaviour
 	public Transform barJoiner => _barJoiner;
 
 	[SerializeField]
-	private CranePulleyMover _pulley;
+	private CranePulleyMover _pulley = null;
 
 	public CranePulleyMover pulley => _pulley;
 
