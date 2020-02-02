@@ -22,7 +22,6 @@ public class ScoreZone : MonoBehaviour
 
     private float determineHighestBlock()
     {
-        Debug.Log("Num blocks in list " + blocksInZone.Count);
         float mostHighestHeight = 0;
         foreach(GameObject obj in blocksInZone)
         {
@@ -31,7 +30,6 @@ public class ScoreZone : MonoBehaviour
                 BlockScript bs = obj.GetComponent<BlockScript>();
                 if (bs != null)
                 {
-                    Debug.Log("bs " + bs);
                     if (!bs.getIsGrabbed())
                     {
                         if (obj.transform.position.y > mostHighestHeight)
