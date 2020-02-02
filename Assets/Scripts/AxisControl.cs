@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public class AxisControl : MonoBehaviour
 {
-    public string Axis = "Horizontal";
+    public string[] Axes = { "Player1_Horizontal_K", "Player1_Horizontal_G" };
 
     public float Speed = 1;
 
@@ -15,12 +15,16 @@ public class AxisControl : MonoBehaviour
     // Update is called once per frame
     private void FixedUpdate()
     {
-        var value = Input.GetAxis(Axis);
-
-        if (Mathf.Abs(value) > 0.05)
+        foreach (var axis in Axes)
         {
-            value *= Speed * Time.fixedDeltaTime;
-            onChange.Invoke(value);
+            var value = Input.GetAxis(axis);
+
+            if (Mathf.Abs(value) > 0.05)
+            {
+                value *= Speed * Time.fixedDeltaTime;
+                onChange.Invoke(value);
+                return;
+            }
         }
     }
 }

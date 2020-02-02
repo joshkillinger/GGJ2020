@@ -69,7 +69,6 @@ public class CraneController_Inspector : Editor
 
         showCraneControls();
         showPulleyControls();
-
     }
 
     private void showCraneControls()
