@@ -1956,7 +1956,7 @@ MonoBehaviour:
   player1Score: {fileID: 1656688997}
   player2Score: {fileID: 0}
   timer: {fileID: 418093669}
-  gameSeconds: 10
+  gameSeconds: 120
   gameEndText: {fileID: 2092636413}
 --- !u!1 &2061833672
 GameObject:
