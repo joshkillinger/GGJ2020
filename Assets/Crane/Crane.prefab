@@ -1,5 +1,100 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &214937748
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 214937749}
+  - component: {fileID: 214937751}
+  - component: {fileID: 214937750}
+  m_Layer: 8
+  m_Name: BlockGrabber
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &214937749
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 214937748}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 229992051}
+  m_Father: {fileID: 6005906925002102607}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &214937751
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 214937748}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.45}
+  serializedVersion: 2
+  m_Radius: 0.5
+--- !u!114 &214937750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 214937748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bb57c4e4739dcf438284772d1a5654f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerNumber: 1
+  grabPoint: {fileID: 229992051}
+  cranePulleyClawRigidBody: {fileID: 1985643228117845930}
+  toggleGrab: 1
+--- !u!1 &229992050
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 229992051}
+  m_Layer: 8
+  m_Name: GrabPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &229992051
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 229992050}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.42, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 214937749}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3541405958219183537
 GameObject:
   m_ObjectHideFlags: 0
@@ -10,7 +105,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2683640835388034126}
   - component: {fileID: 1728993865150535473}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CranePulleyBaseLineR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -75,7 +170,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 1
-  m_Size: {x: 0.75, y: 3.6750002}
+  m_Size: {x: 0.75, y: 0.8199997}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -93,7 +188,7 @@ GameObject:
   - component: {fileID: 8812905631139551178}
   - component: {fileID: 6659888585230157972}
   - component: {fileID: 4495528909535205783}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Crane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -148,7 +243,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Axis: Player1_Horizontal
-  Speed: 1
+  Speed: 10
   onChange:
     m_PersistentCalls:
       m_Calls:
@@ -176,7 +271,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Axis: Player1_Vertical
-  Speed: 2
+  Speed: 10
   onChange:
     m_PersistentCalls:
       m_Calls:
@@ -201,7 +296,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6005906924782702517}
   - component: {fileID: 6005906924782702516}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CranePulleyBaseLineL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -266,7 +361,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 1
-  m_Size: {x: 0.75, y: 3.6750002}
+  m_Size: {x: 0.75, y: 0.8199997}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -282,7 +377,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6005906924798034233}
   - component: {fileID: 6005906924798034232}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: HorizontalBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -297,7 +392,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6005906924798034238}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.5, y: 14, z: 0}
+  m_LocalPosition: {x: 2.5, y: 28, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6005906926575784316}
@@ -351,7 +446,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
-  m_Size: {x: 8, y: 1}
+  m_Size: {x: 32, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -369,7 +464,7 @@ GameObject:
   - component: {fileID: 638978585986776859}
   - component: {fileID: 1985643228117845930}
   - component: {fileID: 91048079448271054}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CranePulleyClaw
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -384,10 +479,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6005906925002102604}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.1500001, y: -8.35, z: 0}
+  m_LocalPosition: {x: -1, y: -2.64, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6005906925621872520}
+  - {fileID: 214937749}
   m_Father: {fileID: 6005906924798034233}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -444,7 +540,7 @@ DistanceJoint2D:
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_AutoConfigureDistance: 0
-  m_Distance: 8.06
+  m_Distance: 2
   m_MaxDistanceOnly: 0
 --- !u!1 &6005906925334812169
 GameObject:
@@ -458,7 +554,7 @@ GameObject:
   - component: {fileID: 6005906925334812168}
   - component: {fileID: 6005906925334812181}
   - component: {fileID: 6005906925334812170}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ClawLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -591,7 +687,7 @@ GameObject:
   - component: {fileID: 6005906925383450721}
   - component: {fileID: 9043105754312926003}
   - component: {fileID: 6449383843518516107}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CranePulley
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -606,7 +702,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6005906925383450726}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.1500001, y: -0.5, z: 0}
+  m_LocalPosition: {x: -1, y: -0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6005906926128691200}
@@ -668,7 +764,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6005906925621872520}
   - component: {fileID: 6005906925621872523}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CranePulleyClawJoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -751,7 +847,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6005906925881996571}
   - component: {fileID: 6005906925881996570}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CraneBarJoiner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -766,7 +862,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6005906925881996568}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 14, z: 0}
+  m_LocalPosition: {x: 0, y: 28, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6005906924762733939}
@@ -832,7 +928,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6005906925923243237}
   - component: {fileID: 6005906925923243162}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CranePulleyMidWeight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -847,7 +943,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6005906925923243163}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -3.9250002, z: 0}
+  m_LocalPosition: {x: 0.00000047683716, y: -1.0699997, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6005906926210316876}
@@ -914,7 +1010,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6005906926045978347}
   - component: {fileID: 6005906926045978346}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CraneBarHorizontalEndLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -929,7 +1025,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6005906926045978344}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.5, y: 0, z: 0}
+  m_LocalPosition: {x: -16.5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6005906924798034233}
@@ -995,7 +1091,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6005906926128691200}
   - component: {fileID: 6005906926128691203}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CranePulleyBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1079,7 +1175,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6005906926210316876}
   - component: {fileID: 6005906926210316879}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CranePulleyClawLine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1144,7 +1240,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 1
-  m_Size: {x: 0.75, y: 3.6750002}
+  m_Size: {x: 0.75, y: 0.82000065}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -1162,7 +1258,7 @@ GameObject:
   - component: {fileID: 6005906926277563722}
   - component: {fileID: 6005906926277563723}
   - component: {fileID: 6005906926277563720}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ClawRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1294,7 +1390,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6005906926575784316}
   - component: {fileID: 6005906926575784319}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CraneBarHorizontalEndRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1309,7 +1405,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6005906926575784317}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.5, y: 0, z: 0}
+  m_LocalPosition: {x: 16.5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6005906924798034233}
@@ -1375,7 +1471,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6005906926658708609}
   - component: {fileID: 6005906926658708608}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: VerticalBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1440,7 +1536,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
-  m_Size: {x: 1, y: 14}
+  m_Size: {x: 1, y: 28}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -1455,7 +1551,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 420001867666051433}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: UpperClawBound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
