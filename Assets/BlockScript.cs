@@ -31,6 +31,7 @@ public class BlockScript : MonoBehaviour
 
         float closestDist = float.PositiveInfinity;
         Transform closest = null;
+
         foreach (var point in grabPoints)
         {
             var dist = (grabberpos - point.position).sqrMagnitude;
@@ -41,8 +42,13 @@ public class BlockScript : MonoBehaviour
             }
         }
 
+        Debug.Log(closest.gameObject);
+
+        transform.localRotation = closest.localRotation;
+        joint.connectedAnchor = new Vector2(0, closest.GetComponent<Offset>().Value);
         joint.connectedBody = grabber;
         joint.enabled = true;
+        physics.freezeRotation = true;
         IsGrabbed = true;
     }
 
@@ -50,6 +56,7 @@ public class BlockScript : MonoBehaviour
     {
         joint.connectedBody = null;
         joint.enabled = false;
+        physics.freezeRotation = false;
         IsGrabbed = false;
     }
 

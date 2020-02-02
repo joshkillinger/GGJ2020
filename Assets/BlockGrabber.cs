@@ -29,6 +29,7 @@ public class BlockGrabber : MonoBehaviour
             }
         }
     }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.tag == "blocks")
@@ -57,81 +58,52 @@ public class BlockGrabber : MonoBehaviour
         }
     }
 
-    private void grab() {
-        
-        if (!isGrabbing) {
+    private void grab()
+    {
+        if (!isGrabbing && currentBlock != null)
+        {
             Debug.Log("grabbing");
             claw.isGrasping = true;
-        }
-        isGrabbing = true;
-        if(currentBlock != null)
-        {
+            isGrabbing = true;
+
             //clench that block
             BlockScript bs = currentBlock.GetComponent<BlockScript>();
-            if(bs != null)
+            if (bs != null)
             {
                 bs.Grab(cranePulleyClawRigidBody);
             }
-            freezeBlockRotation();
         }
     }
-    private void ungrab() {
-        if (isGrabbing){
-            Debug.Log("ungrabbing");
-            claw.isGrasping = false;
-            if(currentBlock != null)
-            {
-                //let it go, let it go
-                currentBlock.velocity = cranePulleyClawRigidBody.velocity;
-                BlockScript bs = currentBlock.GetComponent<BlockScript>();
-                if (bs != null)
-                {
-                    bs.Release();
-                }
-                unfreezeBlockRotation();
-            }
-        }
-        isGrabbing = false;
-    }
 
-    private void freezeBlockRotation() { currentBlock.freezeRotation = true; }
-    private void unfreezeBlockRotation() { currentBlock.freezeRotation = false; }
-
-    private void moveGrabbedBlock()
+    private void ungrab()
     {
         if (isGrabbing && currentBlock != null)
         {
-            currentBlock.transform.position = grabPoint.position;     
+            Debug.Log("ungrabbing");
+            claw.isGrasping = false;
+            isGrabbing = false;
+
+            //let it go, let it go
+            BlockScript bs = currentBlock.GetComponent<BlockScript>();
+            if (bs != null)
+            {
+                bs.Release();
+            }
         }
     }
-
 
     private void handleGrab()
     {
         if (!toggleGrab)
         {
-            if (PlayerNumber == 1)
+            if (Input.GetAxis($"Player{PlayerNumber}_Grab") > Mathf.Epsilon)
             {
-                if (Input.GetAxis("Player1_Grab") > Mathf.Epsilon)
-                {
-                    grabOn = true;
-                }
-                else
-                {
-                    grabOn = false;
-                }
+                grabOn = true;
             }
-            else if (PlayerNumber == 2)
+            else
             {
-                if (Input.GetAxis("Player2_Grab") > Mathf.Epsilon)
-                {
-                    grabOn = true;
-                }
-                else
-                {
-                    grabOn = false;
-                }
-            }            
+                grabOn = false;
+            }
         }
         else
         {
@@ -152,13 +124,9 @@ public class BlockGrabber : MonoBehaviour
             ungrab();
         }
     }
-    private void Update()
+
+    private void FixedUpdate()
     {
-
         handleGrab();
-        moveGrabbedBlock();
     }
-
-
-
 }
