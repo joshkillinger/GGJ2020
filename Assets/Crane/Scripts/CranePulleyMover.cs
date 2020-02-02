@@ -37,17 +37,13 @@ public class CranePulleyMover : MonoBehaviour
     [SerializeField]
     private Transform _rightBounds = null;
 
-    [SerializeField]
-    private Transform _clawUpperBounds = null;
+    public float clawUpperBound = .5f;
 
-    [SerializeField]
-    private Transform _clawLowerBounds = null;
+    public float clawLowerBound = 10f;
 
 
     public float leftBound => _leftBounds.position.x;
     public float rightBound => _rightBounds.position.x;
-    public float clawUpperBound => _clawUpperBounds.position.y;
-    public float clawLowerBound => _clawLowerBounds.position.y;
 
     public float horizontalPosition
     {
