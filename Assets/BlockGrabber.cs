@@ -70,7 +70,7 @@ public class BlockGrabber : MonoBehaviour
             BlockScript bs = currentBlock.GetComponent<BlockScript>();
             if(bs != null)
             {
-                bs.grabBlock();
+                bs.Grab(cranePulleyClawRigidBody);
             }
             freezeBlockRotation();
         }
@@ -86,7 +86,7 @@ public class BlockGrabber : MonoBehaviour
                 BlockScript bs = currentBlock.GetComponent<BlockScript>();
                 if (bs != null)
                 {
-                    bs.ungrabBlock();
+                    bs.Release();
                 }
                 unfreezeBlockRotation();
             }

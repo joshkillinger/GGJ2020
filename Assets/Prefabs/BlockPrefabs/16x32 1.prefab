@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 8279729564102847023}
   - component: {fileID: 7259004001390233676}
   - component: {fileID: 2321950294659684423}
+  - component: {fileID: 1228318482905143564}
+  - component: {fileID: 564553521546370646}
   m_Layer: 0
   m_Name: 16x32 1
   m_TagString: blocks
@@ -136,3 +138,36 @@ PolygonCollider2D:
       - {x: 0.516232, y: 0.41481313}
       - {x: 0.3349042, y: 0.8080015}
       - {x: 0.041410804, y: 1}
+--- !u!114 &1228318482905143564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7393411916060597677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 348ea252e3ceb1844b5b31cec05ecee8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  physics: {fileID: 7259004001390233676}
+  joint: {fileID: 564553521546370646}
+  grabPoints: []
+--- !u!255 &564553521546370646
+FixedJoint2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7393411916060597677}
+  m_Enabled: 1
+  serializedVersion: 4
+  m_EnableCollision: 0
+  m_ConnectedRigidBody: {fileID: 0}
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_AutoConfigureConnectedAnchor: 1
+  m_Anchor: {x: 0, y: 0}
+  m_ConnectedAnchor: {x: 0, y: 0}
+  m_DampingRatio: 0
+  m_Frequency: 0
