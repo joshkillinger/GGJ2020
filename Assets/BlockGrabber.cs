@@ -67,7 +67,7 @@ public class BlockGrabber : MonoBehaviour
             {
                 bs.grabBlock();
             }
-            //freezeBlockRotation();
+            freezeBlockRotation();
         }
     }
     private void ungrab() {
@@ -83,7 +83,7 @@ public class BlockGrabber : MonoBehaviour
                 {
                     bs.ungrabBlock();
                 }
-                //unfreezeBlockRotation();
+                unfreezeBlockRotation();
             }
         }
         isGrabbing = false;
