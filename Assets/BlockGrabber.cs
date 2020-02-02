@@ -11,6 +11,11 @@ public class BlockGrabber : MonoBehaviour
     private bool isGrabbing;
     private CraneClaw claw;
 
+    private float lastFrameInput = 0;
+
+    public bool toggleGrab = true;
+    private bool grabOn = false;
+
 
     private void Awake()
     {
@@ -100,32 +105,58 @@ public class BlockGrabber : MonoBehaviour
         }
     }
 
+
+    private void handleGrab()
+    {
+        if (!toggleGrab)
+        {
+            if (PlayerNumber == 1)
+            {
+                if (Input.GetAxis("Player1_Grab") > Mathf.Epsilon)
+                {
+                    grabOn = true;
+                }
+                else
+                {
+                    grabOn = false;
+                }
+            }
+            else if (PlayerNumber == 2)
+            {
+                if (Input.GetAxis("Player2_Grab") > Mathf.Epsilon)
+                {
+                    grabOn = true;
+                }
+                else
+                {
+                    grabOn = false;
+                }
+            }            
+        }
+        else
+        {
+            float thisFrameInput = Input.GetAxis("Player" + PlayerNumber + "_Grab");
+            if (thisFrameInput - Mathf.Epsilon > lastFrameInput)
+            {
+                grabOn = !grabOn;
+            }
+            lastFrameInput = thisFrameInput;
+        }
+
+        if (grabOn)
+        {
+            grab();
+        }
+        else
+        {
+            ungrab();
+        }
+    }
     private void Update()
     {
-        if (PlayerNumber == 1)
-        {
-            if (Input.GetAxis("Player1_Grab") > Mathf.Epsilon)
-            {
-                grab();
-            }
-            else
-            {
-                ungrab();
-            }
-            moveGrabbedBlock();
-        }
-        else if(PlayerNumber == 2)
-        {
-            if (Input.GetAxis("Player2_Grab") > Mathf.Epsilon)
-            {
-                grab();
-            }
-            else
-            {
-                ungrab();
-            }
-            moveGrabbedBlock();
-        }
+
+        handleGrab();
+        moveGrabbedBlock();
     }
 
 

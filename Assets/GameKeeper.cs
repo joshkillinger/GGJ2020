@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public class GameKeeper : MonoBehaviour
 {
     public string gameMode = "Towahs";
@@ -59,7 +60,7 @@ public class GameKeeper : MonoBehaviour
         player2Score.text = "P2 Height: " + player2Box.getHeightScore().ToString("F2") + "m";
     }
 
-    private void handleGameEnding()
+    private IEnumerator handleGameEnding()
     {
         gameStarted = false;
         if(player1Box.getHeightScore() > player2Box.getHeightScore())
@@ -70,14 +71,16 @@ public class GameKeeper : MonoBehaviour
         {
             gameEndText.text = "Player 2 wins";
         }
-        //then go back to menu
+        yield return null;
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene(0);
     }
 
     void Update()
     {
         if (gameEnded)
         {
-            handleGameEnding();
+            StartCoroutine(handleGameEnding());
         }
         if (gameStarted)
         {
