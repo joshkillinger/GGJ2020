@@ -60,16 +60,29 @@ public class GameKeeper : MonoBehaviour
         player2Score.text = "P2 Height: " + player2Box.getHeightScore().ToString("F2") + "m";
     }
 
+    private void handleOnePlayerScore()
+    {
+        player1Score.text = "Height: " + player1Box.getHeightScore().ToString("F2") + "m";
+    }
+
     private IEnumerator handleGameEnding()
     {
+        timer.text = "0:00";
         gameStarted = false;
-        if(player1Box.getHeightScore() > player2Box.getHeightScore())
+        if (gameMode != "OnePlayer")
         {
-            gameEndText.text = "Player 1 wins";
+            if (player1Box.getHeightScore() > player2Box.getHeightScore())
+            {
+                gameEndText.text = "Player 1 wins";
+            }
+            else
+            {
+                gameEndText.text = "Player 2 wins";
+            }
         }
         else
         {
-            gameEndText.text = "Player 2 wins";
+            gameEndText.text = player1Box.getHeightScore().ToString("F2") + "m!!";
         }
         yield return null;
         yield return new WaitForSeconds(2);
@@ -92,6 +105,10 @@ public class GameKeeper : MonoBehaviour
             else if(gameMode == "Towahs")
             {
                 handleTowahsScore();
+            }
+            else if(gameMode == "OnePlayer")
+            {
+                handleOnePlayerScore();
             }
         }
     }
