@@ -139,6 +139,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 348ea252e3ceb1844b5b31cec05ecee8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  physics: {fileID: 0}
+  joint: {fileID: 0}
+  grabPoints: []
 --- !u!1 &44928582
 GameObject:
   m_ObjectHideFlags: 0
@@ -238,6 +241,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 348ea252e3ceb1844b5b31cec05ecee8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  physics: {fileID: 0}
+  joint: {fileID: 0}
+  grabPoints: []
 --- !u!1 &104900815 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4097873967091121302, guid: 41c63af901061cd4598b4790c199d18b,
@@ -256,6 +262,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 348ea252e3ceb1844b5b31cec05ecee8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  physics: {fileID: 0}
+  joint: {fileID: 0}
+  grabPoints: []
 --- !u!1 &123236370 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1016958833289133021, guid: 41c63af901061cd4598b4790c199d18b,
@@ -274,6 +283,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 348ea252e3ceb1844b5b31cec05ecee8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  physics: {fileID: 0}
+  joint: {fileID: 0}
+  grabPoints: []
 --- !u!1001 &127413835
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -576,6 +588,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 348ea252e3ceb1844b5b31cec05ecee8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  physics: {fileID: 0}
+  joint: {fileID: 0}
+  grabPoints: []
 --- !u!1 &214937748
 GameObject:
   m_ObjectHideFlags: 0
@@ -719,6 +734,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 348ea252e3ceb1844b5b31cec05ecee8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  physics: {fileID: 0}
+  joint: {fileID: 0}
+  grabPoints: []
 --- !u!1 &254814790 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4406931669631739634, guid: 41c63af901061cd4598b4790c199d18b,
@@ -737,6 +755,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 348ea252e3ceb1844b5b31cec05ecee8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  physics: {fileID: 0}
+  joint: {fileID: 0}
+  grabPoints: []
 --- !u!1 &289534109 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4406931670094812414, guid: 41c63af901061cd4598b4790c199d18b,
@@ -755,6 +776,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 348ea252e3ceb1844b5b31cec05ecee8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  physics: {fileID: 0}
+  joint: {fileID: 0}
+  grabPoints: []
 --- !u!1 &308481114
 GameObject:
   m_ObjectHideFlags: 0
@@ -804,6 +828,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 348ea252e3ceb1844b5b31cec05ecee8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  physics: {fileID: 0}
+  joint: {fileID: 0}
+  grabPoints: []
 --- !u!1 &337670459 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5540713775307466434, guid: 41c63af901061cd4598b4790c199d18b,
@@ -822,6 +849,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 348ea252e3ceb1844b5b31cec05ecee8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  physics: {fileID: 0}
+  joint: {fileID: 0}
+  grabPoints: []
 --- !u!1 &358057597
 GameObject:
   m_ObjectHideFlags: 0
@@ -1104,6 +1134,88 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 348ea252e3ceb1844b5b31cec05ecee8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  physics: {fileID: 0}
+  joint: {fileID: 0}
+  grabPoints: []
+--- !u!1 &492523852
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 492523855}
+  - component: {fileID: 492523854}
+  - component: {fileID: 492523853}
+  m_Layer: 0
+  m_Name: RightBounds
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!50 &492523853
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 492523852}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1000
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
+--- !u!61 &492523854
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 492523852}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 50}
+  m_EdgeRadius: 0
+--- !u!4 &492523855
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 492523852}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 31, y: 25, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &535121920 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 643334852741667008, guid: 41c63af901061cd4598b4790c199d18b,
@@ -1122,6 +1234,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 348ea252e3ceb1844b5b31cec05ecee8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  physics: {fileID: 0}
+  joint: {fileID: 0}
+  grabPoints: []
 --- !u!1 &616956421
 GameObject:
   m_ObjectHideFlags: 0
@@ -1350,6 +1465,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 348ea252e3ceb1844b5b31cec05ecee8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  physics: {fileID: 0}
+  joint: {fileID: 0}
+  grabPoints: []
 --- !u!1 &760622808 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8751981734628677985, guid: 41c63af901061cd4598b4790c199d18b,
@@ -1368,6 +1486,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 348ea252e3ceb1844b5b31cec05ecee8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  physics: {fileID: 0}
+  joint: {fileID: 0}
+  grabPoints: []
 --- !u!1 &842341763 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8744395417353727327, guid: 41c63af901061cd4598b4790c199d18b,
@@ -1386,6 +1507,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 348ea252e3ceb1844b5b31cec05ecee8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  physics: {fileID: 0}
+  joint: {fileID: 0}
+  grabPoints: []
 --- !u!1 &941836745 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1016958833279359266, guid: 41c63af901061cd4598b4790c199d18b,
@@ -1404,6 +1528,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 348ea252e3ceb1844b5b31cec05ecee8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  physics: {fileID: 0}
+  joint: {fileID: 0}
+  grabPoints: []
 --- !u!1 &944051496 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3316485772639592450, guid: 41c63af901061cd4598b4790c199d18b,
@@ -1422,6 +1549,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 348ea252e3ceb1844b5b31cec05ecee8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  physics: {fileID: 0}
+  joint: {fileID: 0}
+  grabPoints: []
 --- !u!4 &992191355 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6005906925002102607, guid: 51c200af4aefc874c9718b070ab628d6,
@@ -1587,6 +1717,85 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1094623259
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1094623262}
+  - component: {fileID: 1094623261}
+  - component: {fileID: 1094623260}
+  m_Layer: 0
+  m_Name: LeftBounds
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!50 &1094623260
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1094623259}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1000
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
+--- !u!61 &1094623261
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1094623259}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 50}
+  m_EdgeRadius: 0
+--- !u!4 &1094623262
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1094623259}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -34, y: 25, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1115040691 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4406931669937994027, guid: 41c63af901061cd4598b4790c199d18b,
@@ -1605,6 +1814,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 348ea252e3ceb1844b5b31cec05ecee8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  physics: {fileID: 0}
+  joint: {fileID: 0}
+  grabPoints: []
 --- !u!1 &1123132171 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8744395417292161057, guid: 41c63af901061cd4598b4790c199d18b,
@@ -1623,6 +1835,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 348ea252e3ceb1844b5b31cec05ecee8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  physics: {fileID: 0}
+  joint: {fileID: 0}
+  grabPoints: []
 --- !u!1 &1140683944
 GameObject:
   m_ObjectHideFlags: 0
@@ -1764,6 +1979,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 348ea252e3ceb1844b5b31cec05ecee8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  physics: {fileID: 0}
+  joint: {fileID: 0}
+  grabPoints: []
 --- !u!1 &1187669904 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7423930808023434945, guid: 41c63af901061cd4598b4790c199d18b,
@@ -1782,6 +2000,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 348ea252e3ceb1844b5b31cec05ecee8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  physics: {fileID: 0}
+  joint: {fileID: 0}
+  grabPoints: []
 --- !u!1 &1256524531 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2918442717304791294, guid: 41c63af901061cd4598b4790c199d18b,
@@ -1800,6 +2021,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 348ea252e3ceb1844b5b31cec05ecee8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  physics: {fileID: 0}
+  joint: {fileID: 0}
+  grabPoints: []
 --- !u!1001 &1292259485
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2102,6 +2326,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 348ea252e3ceb1844b5b31cec05ecee8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  physics: {fileID: 0}
+  joint: {fileID: 0}
+  grabPoints: []
 --- !u!1 &1298893045 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7788966325438002196, guid: 41c63af901061cd4598b4790c199d18b,
@@ -2120,6 +2347,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 348ea252e3ceb1844b5b31cec05ecee8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  physics: {fileID: 0}
+  joint: {fileID: 0}
+  grabPoints: []
 --- !u!1 &1321851151 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7788966324340610054, guid: 41c63af901061cd4598b4790c199d18b,
@@ -2138,6 +2368,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 348ea252e3ceb1844b5b31cec05ecee8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  physics: {fileID: 0}
+  joint: {fileID: 0}
+  grabPoints: []
 --- !u!1 &1413133474
 GameObject:
   m_ObjectHideFlags: 0
@@ -2200,6 +2433,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 348ea252e3ceb1844b5b31cec05ecee8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  physics: {fileID: 0}
+  joint: {fileID: 0}
+  grabPoints: []
 --- !u!1 &1452302099 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2987916903395137676, guid: 41c63af901061cd4598b4790c199d18b,
@@ -2218,6 +2454,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 348ea252e3ceb1844b5b31cec05ecee8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  physics: {fileID: 0}
+  joint: {fileID: 0}
+  grabPoints: []
 --- !u!4 &1477445110 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6005906925002102607, guid: 51c200af4aefc874c9718b070ab628d6,
@@ -2248,6 +2487,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 348ea252e3ceb1844b5b31cec05ecee8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  physics: {fileID: 0}
+  joint: {fileID: 0}
+  grabPoints: []
 --- !u!1 &1529710833 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8751981734794857223, guid: 41c63af901061cd4598b4790c199d18b,
@@ -2266,6 +2508,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 348ea252e3ceb1844b5b31cec05ecee8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  physics: {fileID: 0}
+  joint: {fileID: 0}
+  grabPoints: []
 --- !u!1 &1531000214 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9083796348301403998, guid: 41c63af901061cd4598b4790c199d18b,
@@ -2284,6 +2529,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 348ea252e3ceb1844b5b31cec05ecee8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  physics: {fileID: 0}
+  joint: {fileID: 0}
+  grabPoints: []
 --- !u!1 &1572187863 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4406931670436269053, guid: 41c63af901061cd4598b4790c199d18b,
@@ -2302,6 +2550,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 348ea252e3ceb1844b5b31cec05ecee8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  physics: {fileID: 0}
+  joint: {fileID: 0}
+  grabPoints: []
 --- !u!1 &1634089017 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4097873967471349087, guid: 41c63af901061cd4598b4790c199d18b,
@@ -2320,6 +2571,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 348ea252e3ceb1844b5b31cec05ecee8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  physics: {fileID: 0}
+  joint: {fileID: 0}
+  grabPoints: []
 --- !u!1 &1636514253 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6869306238924697079, guid: 41c63af901061cd4598b4790c199d18b,
@@ -2338,6 +2592,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 348ea252e3ceb1844b5b31cec05ecee8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  physics: {fileID: 0}
+  joint: {fileID: 0}
+  grabPoints: []
 --- !u!1 &1656688995
 GameObject:
   m_ObjectHideFlags: 0
@@ -2433,6 +2690,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 348ea252e3ceb1844b5b31cec05ecee8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  physics: {fileID: 0}
+  joint: {fileID: 0}
+  grabPoints: []
 --- !u!4 &1716524400 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6005906924762733939, guid: 51c200af4aefc874c9718b070ab628d6,
@@ -2455,7 +2715,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1735173736
 Transform:
@@ -2565,6 +2825,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 348ea252e3ceb1844b5b31cec05ecee8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  physics: {fileID: 0}
+  joint: {fileID: 0}
+  grabPoints: []
 --- !u!1 &1763051550 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 276956263320160853, guid: 41c63af901061cd4598b4790c199d18b,
@@ -2583,6 +2846,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 348ea252e3ceb1844b5b31cec05ecee8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  physics: {fileID: 0}
+  joint: {fileID: 0}
+  grabPoints: []
 --- !u!1 &1763588935 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4406931670702449911, guid: 41c63af901061cd4598b4790c199d18b,
@@ -2601,6 +2867,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 348ea252e3ceb1844b5b31cec05ecee8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  physics: {fileID: 0}
+  joint: {fileID: 0}
+  grabPoints: []
 --- !u!1 &1803086979 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7788966323760317218, guid: 41c63af901061cd4598b4790c199d18b,
@@ -2619,6 +2888,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 348ea252e3ceb1844b5b31cec05ecee8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  physics: {fileID: 0}
+  joint: {fileID: 0}
+  grabPoints: []
 --- !u!1 &1819261600 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6869306240531417101, guid: 41c63af901061cd4598b4790c199d18b,
@@ -2637,6 +2909,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 348ea252e3ceb1844b5b31cec05ecee8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  physics: {fileID: 0}
+  joint: {fileID: 0}
+  grabPoints: []
 --- !u!4 &1887965169 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6005906924762733939, guid: 51c200af4aefc874c9718b070ab628d6,
@@ -2661,6 +2936,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 348ea252e3ceb1844b5b31cec05ecee8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  physics: {fileID: 0}
+  joint: {fileID: 0}
+  grabPoints: []
 --- !u!1 &1967155129 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 643334851561889900, guid: 41c63af901061cd4598b4790c199d18b,
@@ -2679,6 +2957,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 348ea252e3ceb1844b5b31cec05ecee8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  physics: {fileID: 0}
+  joint: {fileID: 0}
+  grabPoints: []
 --- !u!1 &2041293135 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7423930806754020610, guid: 41c63af901061cd4598b4790c199d18b,
@@ -2697,6 +2978,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 348ea252e3ceb1844b5b31cec05ecee8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  physics: {fileID: 0}
+  joint: {fileID: 0}
+  grabPoints: []
 --- !u!1 &2052918162
 GameObject:
   m_ObjectHideFlags: 0
@@ -3028,6 +3312,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 348ea252e3ceb1844b5b31cec05ecee8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  physics: {fileID: 0}
+  joint: {fileID: 0}
+  grabPoints: []
 --- !u!1 &2130273496 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3231578893123413241, guid: 41c63af901061cd4598b4790c199d18b,
@@ -3046,6 +3333,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 348ea252e3ceb1844b5b31cec05ecee8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  physics: {fileID: 0}
+  joint: {fileID: 0}
+  grabPoints: []
 --- !u!1 &2147429235 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8744395416706525846, guid: 41c63af901061cd4598b4790c199d18b,
@@ -3064,3 +3354,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 348ea252e3ceb1844b5b31cec05ecee8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  physics: {fileID: 0}
+  joint: {fileID: 0}
+  grabPoints: []
